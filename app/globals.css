@@ -323,21 +323,23 @@
   }
 }
 
-/* Inner scroll of the menu cartouche — a hairline gold thumb on the paper. */
+/* Inner scroll of the menu cartouche — a hairline gold thumb on the paper.
+   The fade softens where a dish is cut by the top and foot of the panel; it is
+   kept shallow on phones, where the panel is short and a deep fade would wash
+   out real content. */
 .menu-scroll {
-  /* soften where a dish is cut by the top and foot of the panel */
   -webkit-mask-image: linear-gradient(
     to bottom,
     transparent 0,
-    #000 56px,
-    #000 calc(100% - 120px),
+    #000 28px,
+    #000 calc(100% - 44px),
     transparent 100%
   );
   mask-image: linear-gradient(
     to bottom,
     transparent 0,
-    #000 56px,
-    #000 calc(100% - 120px),
+    #000 28px,
+    #000 calc(100% - 44px),
     transparent 100%
   );
   scrollbar-width: thin;
@@ -353,6 +355,24 @@
 .menu-scroll::-webkit-scrollbar-thumb {
   border-radius: 999px;
   background: color-mix(in oklab, var(--color-menu-gold) 55%, transparent);
+}
+@media (min-width: 768px) {
+  .menu-scroll {
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      transparent 0,
+      #000 56px,
+      #000 calc(100% - 120px),
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      to bottom,
+      transparent 0,
+      #000 56px,
+      #000 calc(100% - 120px),
+      transparent 100%
+    );
+  }
 }
 
 /* Guest-review carousels: two identical halves slid by exactly one half. */

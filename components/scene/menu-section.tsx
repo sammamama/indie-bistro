@@ -27,11 +27,15 @@ export function MenuSection() {
   return (
     <section
       id="menu"
-      className="flex h-[112dvh] w-full flex-col overflow-hidden bg-neutral-100 pb-2 pt-[4.5rem] md:pt-[4.5rem]"
+      /*
+       * On phones the sheet grows with its content and scrolls with the page.
+       * From md up it goes back to a fixed-height panel with an inner scroll.
+       */
+      className="flex w-full flex-col bg-neutral-100 pb-8 pt-[4.5rem] md:h-[112dvh] md:overflow-hidden md:pb-2"
     >
-      <div className="mx-auto flex min-h-0 w-full max-w-5xl flex-1 px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-5xl px-4 sm:px-6 md:flex md:min-h-0 md:flex-1 lg:px-8">
         {/* The printed menu lives on its own bordered sheet of sage paper. */}
-        <div className="relative flex min-h-0 flex-1 overflow-hidden rounded-3xl border border-menu-gold/40 bg-menu-sage">
+        <div className="relative w-full overflow-hidden rounded-3xl border border-menu-gold/40 bg-menu-sage md:flex md:min-h-0 md:flex-1">
           <PaperGrain />
 
           <div
@@ -63,7 +67,7 @@ export function MenuSection() {
             />
           </div>
 
-          <div className="relative flex min-h-0 flex-1 flex-col px-3 py-2 sm:px-6 sm:py-2.5">
+          <div className="relative flex w-full flex-col px-3 py-2 sm:px-6 sm:py-2.5 md:min-h-0 md:flex-1">
             <header className="shrink-0 text-center">
               <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-menu-ink/55">
                 Tradition with a twist
@@ -114,7 +118,7 @@ export function MenuSection() {
               ))}
             </div>
 
-            <Cartouche className="mx-auto mt-1.5 min-h-0 w-full max-w-3xl flex-1 text-menu-ink">
+            <Cartouche className="mx-auto mt-1.5 w-full max-w-3xl text-menu-ink md:min-h-0 md:flex-1">
               <AnimatePresence mode="wait" initial={false}>
                 <motion.div
                   key={active.id}

@@ -23,11 +23,11 @@ function Row({
   return (
     <div className="marquee group relative overflow-hidden py-2">
       <div
-        className={`marquee-track flex w-max gap-4 ${reverse ? "marquee-track-reverse" : ""}`}
+        className={`marquee-track flex w-max gap-3 sm:gap-4 ${reverse ? "marquee-track-reverse" : ""}`}
         style={{ animationDuration: `${seconds}s` }}
       >
         {[0, 1].map((copy) => (
-          <div key={copy} aria-hidden={copy === 1} className="flex gap-4 pr-4">
+          <div key={copy} aria-hidden={copy === 1} className="flex gap-3 pr-3 sm:gap-4 sm:pr-4">
             {half.map((review, index) => (
               <ReviewCard key={`${copy}-${index}-${review.name}`} review={review} />
             ))}

@@ -138,7 +138,7 @@ export function Hero() {
 
         <motion.div
           style={{ pointerEvents: copyPointer }}
-          className="absolute inset-y-0 left-0 z-20 flex w-full flex-col items-center justify-center gap-5 px-6 md:w-1/2 md:gap-6"
+          className="absolute inset-y-0 left-0 z-20 flex w-full flex-col items-center justify-center gap-5 px-6 pb-24 md:w-1/2 md:gap-6 md:pb-28"
         >
           {/* Set like a page of the printed menu: fan, rule, script tagline. */}
           <motion.div

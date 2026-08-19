@@ -10,7 +10,7 @@ function Stars({ rating }: { rating: number }) {
       {[1, 2, 3, 4, 5].map((index) => (
         <Star
           key={index}
-          className={`h-3.5 w-3.5 ${index <= rating ? "" : "opacity-25"}`}
+          className={`h-3 w-3 sm:h-3.5 sm:w-3.5 ${index <= rating ? "" : "opacity-25"}`}
         />
       ))}
     </span>
@@ -23,7 +23,7 @@ function Stars({ rating }: { rating: number }) {
  */
 export function ReviewCard({ review }: { review: Review }) {
   return (
-    <figure className="relative flex w-[19rem] shrink-0 flex-col rounded-2xl border border-menu-gold/45 bg-menu-cream px-5 py-4 shadow-[0_8px_16px_rgba(14,61,66,0.10)] sm:w-[23rem] sm:px-6 sm:py-5">
+    <figure className="relative flex w-[15rem] shrink-0 flex-col rounded-2xl border border-menu-gold/45 bg-menu-cream px-4 py-3.5 shadow-[0_8px_16px_rgba(14,61,66,0.10)] sm:w-[23rem] sm:px-6 sm:py-5">
       <span
         aria-hidden
         className="pointer-events-none absolute inset-[5px] rounded-xl border border-dotted border-menu-gold/40"
@@ -33,18 +33,18 @@ export function ReviewCard({ review }: { review: Review }) {
         <Stars rating={review.rating} />
       </div>
 
-      <blockquote className="relative mt-3 line-clamp-6 font-serif text-[0.95rem] leading-relaxed text-menu-ink/85">
+      <blockquote className="relative mt-2.5 line-clamp-5 font-serif text-[0.8rem] leading-relaxed text-menu-ink/85 sm:mt-3 sm:line-clamp-6 sm:text-[0.95rem]">
         {review.quote}
       </blockquote>
 
-      <DiamondRule className="relative mt-4 h-2.5 w-24 text-menu-gold" />
+      <DiamondRule className="relative mt-3 h-2 w-20 text-menu-gold sm:mt-4 sm:h-2.5 sm:w-24" />
 
       <figcaption className="relative mt-2">
-        <p className="font-script text-2xl leading-none text-menu-ink">
+        <p className="font-script text-xl leading-none text-menu-ink sm:text-2xl">
           {review.name}
         </p>
         {review.meta && (
-          <p className="mt-1 text-[10px] uppercase tracking-[0.16em] text-menu-ink/50">
+          <p className="mt-1 text-[9px] uppercase tracking-[0.14em] text-menu-ink/50 sm:text-[10px] sm:tracking-[0.16em]">
             {review.meta}
           </p>
         )}

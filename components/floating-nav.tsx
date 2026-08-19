@@ -99,18 +99,21 @@ export function FloatingNav() {
               ))}
             </div>
 
-            <Link
-              href={site.uberEats}
-              target="_blank"
-              rel="noreferrer"
-              className={buttonVariants({
-                variant: ctaVariant,
-                className:
-                  "ml-auto hidden h-9 shrink-0 rounded-full px-5 text-base transition-colors duration-300 md:ml-3 md:inline-flex",
-              })}
-            >
-              <span className="relative z-10">Order</span>
-            </Link>
+            {/* Desktop only — on mobile the CTA lives in the drawer. */}
+            <div className="ml-auto hidden shrink-0 md:ml-3 md:block">
+              <Link
+                href={site.uberEats}
+                target="_blank"
+                rel="noreferrer"
+                className={buttonVariants({
+                  variant: ctaVariant,
+                  className:
+                    "h-9 rounded-full px-5 text-base transition-colors duration-300",
+                })}
+              >
+                <span className="relative z-10">Order</span>
+              </Link>
+            </div>
 
             <button
               type="button"

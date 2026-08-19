@@ -49,7 +49,8 @@ export function StoryPanel() {
           few lives already.
         </p>
 
-        <ol className="mt-6 grid gap-5 border-y border-menu-gold/30 py-6 sm:mt-8 sm:gap-6 sm:py-7 sm:grid-cols-3">
+        {/* The three chapters are desktop-only; the phone panel stays short. */}
+        <ol className="hidden border-y border-menu-gold/30 sm:mt-8 sm:grid sm:gap-6 sm:py-7 sm:grid-cols-3">
           {chapters.map((chapter) => (
             <li key={chapter.label}>
               <h3 className="font-script text-3xl leading-none text-menu-ink">

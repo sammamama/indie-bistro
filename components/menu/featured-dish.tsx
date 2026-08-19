@@ -12,12 +12,12 @@ export function FeaturedDish({ item }: { item: MenuItem }) {
   return (
     <article className="relative mb-10 border border-menu-gold/70 p-2 sm:p-2.5">
       <div className="grid gap-5 border border-menu-gold/40 p-4 sm:grid-cols-[minmax(0,38%)_1fr] sm:gap-6 sm:p-5">
-        <div className="relative aspect-4/3 overflow-hidden border border-menu-gold/50 sm:aspect-square">
+        <div className="relative mx-auto aspect-square w-24 overflow-hidden border border-menu-gold/50 sm:mx-0 sm:w-auto">
           <Image
             src={photo(item.image)}
             alt={item.name}
             fill
-            sizes="(min-width: 640px) 260px, 90vw"
+            sizes="(min-width: 640px) 260px, 96px"
             className="object-cover"
           />
         </div>
