@@ -91,7 +91,7 @@ export function Cartouche({
         <CornerFan className="absolute bottom-10 right-3 h-6 w-6 -scale-100 sm:bottom-12 sm:right-5 sm:h-8 sm:w-8" />
       </div>
 
-      <div className="menu-scroll relative max-h-[62svh] overflow-y-auto px-5 pb-8 pt-11 sm:px-10 sm:pb-10 sm:pt-12 md:max-h-none md:min-h-0 md:flex-1 lg:px-14 lg:pt-14">
+      <div className="menu-scroll relative max-h-[75svh] overflow-y-auto px-5 pb-8 pt-11 sm:px-10 sm:pb-10 sm:pt-12 md:max-h-none md:min-h-0 md:flex-1 lg:px-14 lg:pt-14">
         {children}
       </div>
     </div>
