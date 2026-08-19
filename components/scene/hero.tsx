@@ -96,8 +96,8 @@ export function Hero() {
   );
 
   return (
-    <section ref={ref} className="relative h-[400svh]">
-      <div className="sticky top-0 h-svh w-full overflow-hidden">
+    <section ref={ref} className="relative h-[400svh] bg-neutral-950">
+      <div className="sticky top-0 h-dvh w-full overflow-hidden">
         <motion.video
           src="/bg.webm"
           autoPlay
@@ -123,7 +123,7 @@ export function Hero() {
 
         <motion.div
           style={{ scale: fgScale, y: fgY }}
-          className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-[55svh] md:top-0 md:h-auto"
+          className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-[55dvh] md:top-0 md:h-auto"
         >
           <Image
             src={fg}

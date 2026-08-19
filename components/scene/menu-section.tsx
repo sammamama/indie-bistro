@@ -71,7 +71,7 @@ export function MenuSection() {
   return (
     <section
       id="menu"
-      className="flex h-svh w-full flex-col overflow-hidden bg-neutral-100 pb-6 pt-20 md:pt-24"
+      className="flex h-dvh w-full flex-col overflow-hidden bg-neutral-100 pb-6 pt-20 md:pt-24"
     >
       <div className="mx-auto flex w-full max-w-5xl shrink-0 flex-col px-4 sm:px-6 lg:px-8">
         <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-neutral-400">
