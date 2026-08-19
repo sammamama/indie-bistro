@@ -14,6 +14,7 @@ import fg from "@/public/fg.webp";
 import { buttonVariants } from "@/components/ui/button";
 import { site } from "@/lib/site";
 import { StoryPanel } from "@/components/scene/story-panel";
+import { DiamondRule, FanDivider } from "@/components/menu/ornaments";
 
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
@@ -116,7 +117,7 @@ export function Hero() {
             y: panelY,
             pointerEvents: panelPointer,
           }}
-          className="absolute inset-0 z-0 grid place-items-center overflow-y-auto overflow-x-clip px-4 pb-8 pt-24 lg:px-8 lg:pb-10 lg:pt-20"
+          className="no-scrollbar absolute inset-0 z-0 grid place-items-center overflow-y-auto overflow-x-clip px-4 pb-8 pt-24 lg:px-8 lg:pb-10 lg:pt-20"
         >
           <StoryPanel />
         </motion.div>
@@ -139,16 +140,27 @@ export function Hero() {
           style={{ pointerEvents: copyPointer }}
           className="absolute inset-y-0 left-0 z-20 flex w-full flex-col items-center justify-center gap-5 px-6 md:w-1/2 md:gap-6"
         >
-          <motion.h1
+          {/* Set like a page of the printed menu: fan, rule, script tagline. */}
+          <motion.div
             style={{ opacity: headingOpacity, y: headingY }}
-            className="text-center font-serif text-7xl leading-[0.95] tracking-tight text-neutral-100 [text-shadow:0_1px_2px_rgb(0_0_0/0.65),0_4px_12px_rgb(0_0_0/0.5),0_12px_32px_rgb(0_0_0/0.35)] md:text-7xl lg:text-8xl"
+            className="flex flex-col items-center text-center [filter:drop-shadow(0_1px_3px_rgb(0_0_0/0.35))]"
           >
-            Indie Bistro
-          </motion.h1>
+            <FanDivider className="h-10 w-28 text-menu-gold sm:h-12 sm:w-32" />
+
+            <p className="mt-2 text-[11px] font-medium uppercase tracking-[0.28em] text-menu-cream/70">
+              Bentleigh
+            </p>
+
+            <h1 className="mt-1 font-serif text-6xl uppercase leading-[0.95] tracking-[0.04em] text-menu-cream [text-shadow:0_1px_2px_rgb(0_0_0/0.35),0_4px_14px_rgb(0_0_0/0.25)] sm:text-7xl lg:text-8xl">
+              Indie Bistro
+            </h1>
+
+            <DiamondRule className="mt-3 h-3 w-52 text-menu-gold sm:w-72" />
+          </motion.div>
 
           <motion.p
             style={{ opacity: taglineOpacity, y: taglineY }}
-            className="-mt-2 text-center text-base tracking-wide text-neutral-200 [text-shadow:0_1px_2px_rgb(0_0_0/0.6),0_4px_12px_rgb(0_0_0/0.45)] sm:text-lg md:text-xl"
+            className="-mt-1 text-center font-serif text-lg italic tracking-wide text-menu-cream/90 [text-shadow:0_1px_2px_rgb(0_0_0/0.3),0_3px_10px_rgb(0_0_0/0.2)] sm:text-xl md:text-2xl"
           >
             Good food. Cold drinks. Zero rush.
           </motion.p>
@@ -159,9 +171,9 @@ export function Hero() {
                 href="#menu"
                 className={buttonVariants({
                   size: "lg",
-                  variant: "outline",
+                  variant: "menu",
                   className:
-                    "h-10 rounded-full border-white/60 bg-white/25 px-5 text-sm tracking-wide text-neutral-900 backdrop-blur-sm hover:bg-white/40 sm:h-12 sm:px-8 sm:text-base",
+                    "h-10 rounded-full px-6 text-sm sm:h-12 sm:px-9 sm:text-base",
                 })}
               >
                 See Menu
@@ -174,8 +186,9 @@ export function Hero() {
                 rel="noreferrer"
                 className={buttonVariants({
                   size: "lg",
+                  variant: "menuInk",
                   className:
-                    "h-10 rounded-full bg-neutral-900 px-5 text-sm tracking-wide text-white shadow-lg shadow-black/25 hover:bg-neutral-800 sm:h-12 sm:px-8 sm:text-base",
+                    "h-10 rounded-full px-6 text-sm sm:h-12 sm:px-9 sm:text-base",
                 })}
               >
                 Order Online

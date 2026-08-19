@@ -34,6 +34,7 @@ export const menu: MenuSection[] = [
   {
     id: "veg-starters",
     label: "Veg Starters",
+    blurb: "Crisp, vibrant bites to begin the meal.",
     groups: [
       {
         items: [
@@ -407,6 +408,7 @@ export const menu: MenuSection[] = [
   {
     id: "south-indian",
     label: "South Indian",
+    blurb: "Comforting classics from the south.",
     groups: [
       {
         title: "Idli",

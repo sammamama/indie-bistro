@@ -4,6 +4,7 @@ import { MapPin, Phone, UtensilsCrossed } from "lucide-react";
 import logo from "@/public/logo.webp";
 
 import { site } from "@/lib/site";
+import { buttonVariants } from "@/components/ui/button";
 
 const { address, phone, maps, uberEats, instagram } = site;
 
@@ -82,7 +83,10 @@ export function Footer() {
               href={uberEats}
               target="_blank"
               rel="noreferrer"
-              className="mt-4 flex w-fit items-center gap-2 rounded-full bg-neutral-900 px-5 py-2.5 text-sm font-medium tracking-wide text-white transition-colors hover:bg-neutral-800"
+              className={buttonVariants({
+                variant: "menuInk",
+                className: "mt-4 w-fit rounded-full px-6 py-2.5 text-sm",
+              })}
             >
               <UtensilsCrossed className="size-4" />
               Order on Uber Eats

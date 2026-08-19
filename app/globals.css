@@ -47,6 +47,16 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
+
+  /* Printed-menu palette — sampled from Indie_Bistro_Menu.pdf */
+  --color-menu-sage: #c6dbd7;
+  --color-menu-sage-deep: #a9c7c2;
+  --color-menu-cream: #f8eed9;
+  --color-menu-cream-deep: #f0e2c6;
+  --color-menu-ink: #0e3d42;
+  --color-menu-gold: #b8862f;
+
+  --font-script: var(--font-pinyon-script);
 }
 
 :root {
@@ -303,4 +313,94 @@
     rgba(0, 0, 0, 0.35) 80%,
     transparent 100%
   );
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Inner scroll of the menu cartouche — a hairline gold thumb on the paper. */
+.menu-scroll {
+  /* soften where a dish is cut by the top and foot of the panel */
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0,
+    #000 56px,
+    #000 calc(100% - 120px),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0,
+    #000 56px,
+    #000 calc(100% - 120px),
+    transparent 100%
+  );
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in oklab, var(--color-menu-gold) 55%, transparent)
+    transparent;
+}
+.menu-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+.menu-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.menu-scroll::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--color-menu-gold) 55%, transparent);
+}
+
+/* Guest-review carousels: two identical halves slid by exactly one half. */
+.marquee-track {
+  animation-name: marquee-drift;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+.marquee-track-reverse {
+  animation-direction: reverse;
+}
+.marquee:hover .marquee-track,
+.marquee:focus-within .marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes marquee-drift {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+/* Cards fade out at the screen edges rather than clipping hard. */
+.marquee-mask {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 96px,
+    #000 calc(100% - 96px),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 96px,
+    #000 calc(100% - 96px),
+    transparent 100%
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+  .marquee {
+    overflow-x: auto;
+  }
 }

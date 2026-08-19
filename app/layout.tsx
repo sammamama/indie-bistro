@@ -1,5 +1,10 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
+import {
+  Geist,
+  Geist_Mono,
+  Instrument_Serif,
+  Pinyon_Script,
+} from "next/font/google";
 import "./globals.css";
 import { FloatingNav } from "@/components/floating-nav";
 import { site } from "@/lib/site";
@@ -16,6 +21,12 @@ const geistMono = Geist_Mono({
 
 const instrumentSerif = Instrument_Serif({
   variable: "--font-instrument-serif",
+  weight: "400",
+  subsets: ["latin"],
+});
+
+const pinyonScript = Pinyon_Script({
+  variable: "--font-pinyon-script",
   weight: "400",
   subsets: ["latin"],
 });
@@ -43,7 +54,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable} ${pinyonScript.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <FloatingNav />

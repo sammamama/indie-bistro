@@ -13,6 +13,7 @@ import {
   useScroll,
 } from "motion/react";
 import { Menu, X } from "lucide-react";
+import { buttonVariants } from "@/components/ui/button";
 
 const links = [
   { label: "Menu", href: "/#menu" },
@@ -40,9 +41,9 @@ export function FloatingNav() {
   useMotionValueEvent(scrollY, "change", (y) => setOnLight(pastHero(y)));
 
   const ink = light ? "text-neutral-900" : `text-white ${glow}`;
-  const pill = light
-    ? "bg-neutral-900 text-white hover:bg-neutral-800"
-    : "bg-white text-neutral-900 hover:bg-neutral-100";
+
+  /* Cream stock over the hero, ink stock once the page turns light. */
+  const ctaVariant = light ? ("menuInk" as const) : ("menu" as const);
 
   return (
     <>
@@ -80,7 +81,7 @@ export function FloatingNav() {
                   key={link.href}
                   href={link.href}
                   onMouseEnter={() => setHovered(link.href)}
-                  className={`relative rounded-full px-4 py-2 text-sm tracking-wide transition-all duration-300 ${ink}`}
+                  className={`relative rounded-full px-4 py-2 font-serif text-base tracking-wide transition-all duration-300 ${ink}`}
                 >
                   {hovered === link.href && (
                     <motion.span
@@ -102,7 +103,11 @@ export function FloatingNav() {
               href={site.uberEats}
               target="_blank"
               rel="noreferrer"
-              className={`ml-auto hidden shrink-0 rounded-full px-5 py-2 text-sm font-semibold tracking-wide shadow-lg shadow-black/15 transition-colors duration-300 md:ml-3 md:block ${pill}`}
+              className={buttonVariants({
+                variant: ctaVariant,
+                className:
+                  "ml-auto hidden h-9 shrink-0 rounded-full px-5 text-base transition-colors duration-300 md:ml-3 md:inline-flex",
+              })}
             >
               <span className="relative z-10">Order</span>
             </Link>
@@ -133,7 +138,7 @@ export function FloatingNav() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className={`block rounded-2xl px-4 py-3 text-base tracking-wide transition-all duration-300 hover:bg-white/40 ${ink}`}
+                  className={`block rounded-2xl px-4 py-3 font-serif text-lg tracking-wide transition-all duration-300 hover:bg-white/40 ${ink}`}
                 >
                   {link.label}
                 </Link>
@@ -143,7 +148,10 @@ export function FloatingNav() {
                 target="_blank"
                 rel="noreferrer"
                 onClick={() => setOpen(false)}
-                className={`mt-1 block rounded-2xl px-4 py-3 text-center text-base font-semibold transition-colors duration-300 ${pill}`}
+                className={buttonVariants({
+                  variant: ctaVariant,
+                  className: "mt-1 w-full rounded-2xl px-4 py-3 text-lg",
+                })}
               >
                 <span className="relative z-10">Order</span>
               </Link>
