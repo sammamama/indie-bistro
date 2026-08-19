@@ -107,7 +107,7 @@ export function Hero() {
           preload="auto"
           aria-hidden
           style={{ scale: bgScale }}
-          className="pointer-events-none absolute inset-0 h-full w-full object-cover"
+          className="pointer-events-none absolute inset-x-0 top-0 h-[100lvh] w-full transform-gpu object-cover [backface-visibility:hidden] [will-change:transform]"
         />
 
         <motion.div
@@ -123,7 +123,7 @@ export function Hero() {
 
         <motion.div
           style={{ scale: fgScale, y: fgY }}
-          className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-[55dvh] md:top-0 md:h-auto"
+          className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-[55lvh] transform-gpu [backface-visibility:hidden] [will-change:transform] md:top-0 md:h-[100lvh]"
         >
           <Image
             src={fg}
