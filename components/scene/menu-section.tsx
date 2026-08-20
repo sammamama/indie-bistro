@@ -28,14 +28,14 @@ export function MenuSection() {
     <section
       id="menu"
       /*
-       * On phones the sheet grows with its content and scrolls with the page.
-       * From md up it goes back to a fixed-height panel with an inner scroll.
+       * The sheet always grows to its full printed length and scrolls with the
+       * page; only the title and the section tabs stay pinned while it passes.
        */
-      className="flex w-full flex-col bg-neutral-100 pb-8 pt-[4.5rem] md:h-[112dvh] md:overflow-hidden md:pb-2"
+      className="flex w-full flex-col bg-neutral-100 pb-8 pt-[4.5rem] md:pb-10"
     >
-      <div className="mx-auto w-full max-w-5xl px-4 sm:px-6 md:flex md:min-h-0 md:flex-1 lg:px-8">
+      <div className="mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8">
         {/* The printed menu lives on its own bordered sheet of sage paper. */}
-        <div className="relative w-full overflow-hidden rounded-3xl border border-menu-gold/40 bg-menu-sage md:flex md:min-h-0 md:flex-1">
+        <div className="relative w-full overflow-clip rounded-3xl border border-menu-gold/40 bg-menu-sage">
           <PaperGrain />
 
           <div
@@ -56,69 +56,76 @@ export function MenuSection() {
               alt=""
               width={229}
               height={900}
-              className="absolute -left-2 top-6 h-[80%] w-auto opacity-70"
+              className="absolute -left-2 top-6 h-[36rem] w-auto opacity-70"
             />
             <Image
               src="/sprig-right.webp"
               alt=""
               width={204}
               height={900}
-              className="absolute -right-2 bottom-6 h-[80%] w-auto opacity-70"
+              className="absolute -right-2 bottom-6 h-[36rem] w-auto opacity-70"
             />
           </div>
 
-          <div className="relative flex w-full flex-col px-3 py-2 sm:px-6 sm:py-2.5 md:min-h-0 md:flex-1">
-            <header className="shrink-0 text-center">
-              <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-menu-ink/55">
-                Tradition with a twist
-              </p>
-              <h2 className="font-serif text-2xl leading-[1.05] tracking-tight text-menu-ink sm:text-3xl">
-                Menu
-              </h2>
-            </header>
+          <div className="relative flex w-full flex-col px-3 py-2 sm:px-6 sm:py-2.5">
+            {/*
+             * Pinned under the floating nav (hence the z above the nav scrim)
+             * for as long as the sheet is on screen — the bar's containing
+             * block is the sheet, so it releases at the foot of the menu.
+             */}
+            <div className="sticky top-[4.75rem] z-[45] -mx-1 rounded-2xl bg-menu-sage/90 px-1 pb-1.5 backdrop-blur-sm md:top-[5.5rem]">
+              <header className="shrink-0 text-center">
+                <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-menu-ink/55">
+                  Tradition with a twist
+                </p>
+                <h2 className="font-serif text-2xl leading-[1.05] tracking-tight text-menu-ink sm:text-3xl">
+                  Menu
+                </h2>
+              </header>
 
-            <div
-              role="tablist"
-              aria-label="Menu sections"
-              className="no-scrollbar mx-auto mt-1.5 flex w-full max-w-3xl shrink-0 gap-1 overflow-x-auto rounded-full border border-menu-gold/45 p-1"
-            >
-              {menu.map((section) => (
-                <button
-                  key={section.id}
-                  type="button"
-                  role="tab"
-                  aria-selected={section.id === activeId}
-                  onClick={(event) => {
-                    setActiveId(section.id);
-                    event.currentTarget.scrollIntoView({
-                      behavior: "smooth",
-                      inline: "center",
-                      block: "nearest",
-                    });
-                  }}
-                  className={`relative shrink-0 whitespace-nowrap rounded-full px-4 py-1 font-serif text-sm tracking-wide transition-colors ${
-                    section.id === activeId
-                      ? "text-menu-ink"
-                      : "text-menu-ink/65 hover:text-menu-ink"
-                  }`}
-                >
-                  {section.id === activeId && (
-                    <motion.span
-                      layoutId="menu-tab-pill"
-                      transition={{
-                        type: "spring",
-                        stiffness: 380,
-                        damping: 32,
-                      }}
-                      className="absolute inset-0 -z-10 rounded-full bg-menu-cream shadow-sm motion-reduce:transition-none"
-                    />
-                  )}
-                  <span className="relative">{section.label}</span>
-                </button>
-              ))}
+              <div
+                role="tablist"
+                aria-label="Menu sections"
+                className="no-scrollbar mx-auto mt-1.5 flex w-full max-w-3xl shrink-0 gap-1 overflow-x-auto rounded-full border border-menu-gold/45 p-1"
+              >
+                {menu.map((section) => (
+                  <button
+                    key={section.id}
+                    type="button"
+                    role="tab"
+                    aria-selected={section.id === activeId}
+                    onClick={(event) => {
+                      setActiveId(section.id);
+                      event.currentTarget.scrollIntoView({
+                        behavior: "smooth",
+                        inline: "center",
+                        block: "nearest",
+                      });
+                    }}
+                    className={`relative shrink-0 whitespace-nowrap rounded-full px-4 py-1 font-serif text-sm tracking-wide transition-colors ${
+                      section.id === activeId
+                        ? "text-menu-ink"
+                        : "text-menu-ink/65 hover:text-menu-ink"
+                    }`}
+                  >
+                    {section.id === activeId && (
+                      <motion.span
+                        layoutId="menu-tab-pill"
+                        transition={{
+                          type: "spring",
+                          stiffness: 380,
+                          damping: 32,
+                        }}
+                        className="absolute inset-0 -z-10 rounded-full bg-menu-cream shadow-sm motion-reduce:transition-none"
+                      />
+                    )}
+                    <span className="relative">{section.label}</span>
+                  </button>
+                ))}
+              </div>
             </div>
 
-            <Cartouche className="mx-auto mt-1.5 w-full max-w-3xl text-menu-ink md:min-h-0 md:flex-1">
+            <Cartouche className="mx-auto mt-1.5 w-full max-w-3xl text-menu-ink">
               <AnimatePresence mode="wait" initial={false}>
                 <motion.div
                   key={active.id}
