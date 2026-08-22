@@ -7,6 +7,7 @@ import {
 } from "next/font/google";
 import "./globals.css";
 import { FloatingNav } from "@/components/floating-nav";
+import { Toaster } from "@/components/ui/toaster";
 import { site } from "@/lib/site";
 
 const geistSans = Geist({
@@ -59,6 +60,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col">
         <FloatingNav />
         {children}
+        <Toaster />
       </body>
     </html>
   );

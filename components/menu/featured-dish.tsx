@@ -2,7 +2,10 @@ import Image from "next/image";
 import { Ribbon } from "@/components/menu/ornaments";
 import type { MenuItem } from "@/lib/menu";
 
-const photo = (base: string) => `${base}?auto=format&fit=crop&w=800&q=70`;
+// Remote stock photos are resized at the source; files served from /public are
+// already sized and take no query string.
+const photo = (base: string) =>
+  base.startsWith("/") ? base : `${base}?auto=format&fit=crop&w=800&q=70`;
 
 /**
  * The one plated dish a section leads with — the framed photo panel the printed

@@ -33,6 +33,12 @@ export function ReviewCard({ review }: { review: Review }) {
         <Stars rating={review.rating} />
       </div>
 
+      {review.title && (
+        <p className="relative mt-2 font-serif text-base leading-snug text-menu-ink sm:text-lg">
+          {review.title}
+        </p>
+      )}
+
       <blockquote className="relative mt-2.5 line-clamp-5 font-serif text-[0.8rem] leading-relaxed text-menu-ink/85 sm:mt-3 sm:line-clamp-6 sm:text-[0.95rem]">
         {review.quote}
       </blockquote>

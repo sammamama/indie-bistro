@@ -149,13 +149,15 @@ export function MenuSection() {
                   )}
 
                   <div className="mt-5">
-                    {featured && <FeaturedDish item={featured} />}
-
                     {active.groups.map((group, index) => {
                       const items = group.items.filter(
                         (item) => item !== featured,
                       );
-                      if (items.length === 0) return null;
+                      // The featured dish sits under its own group heading, so
+                      // the group still reads as a titled block.
+                      const leadsWithFeatured =
+                        !!featured && group.items.includes(featured);
+                      if (items.length === 0 && !leadsWithFeatured) return null;
 
                       return (
                         <section
@@ -180,11 +182,15 @@ export function MenuSection() {
                             </div>
                           )}
 
-                          <ul className="divide-y divide-menu-gold/15">
-                            {items.map((item) => (
-                              <DishRow key={item.name} item={item} />
-                            ))}
-                          </ul>
+                          {leadsWithFeatured && <FeaturedDish item={featured} />}
+
+                          {items.length > 0 && (
+                            <ul className="divide-y divide-menu-gold/15">
+                              {items.map((item) => (
+                                <DishRow key={item.name} item={item} />
+                              ))}
+                            </ul>
+                          )}
                         </section>
                       );
                     })}

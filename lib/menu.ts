@@ -90,8 +90,7 @@ export const menu: MenuSection[] = [
         items: [
           {
             name: "Chicken & Chips",
-            image:
-              "https://images.unsplash.com/photo-1569058242253-92a9c755a0ec",
+            image: "/chicken-and-chips.webp",
             price: "$15.99",
             badge: "Chef's Special",
             description:
@@ -249,16 +248,15 @@ export const menu: MenuSection[] = [
             name: "Peppi Paneer",
             description:
               "Puff base with chilli paneer, capsicum and mozzarella, baked till the edges lift.",
-            image:
-              "https://images.unsplash.com/photo-1513104890138-7c749659a591",
+            image: "/puff-pizza.webp",
             price: "$15.99",
+            badge: "Chef's Special",
           },
           {
             name: "Chicken Tikka",
             description:
               "Puff base loaded with tandoori chicken tikka, onion and mozzarella.",
-            image:
-              "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
+            image: "/chicken-tikka-pizza.webp",
             price: "$17.99",
           },
         ],

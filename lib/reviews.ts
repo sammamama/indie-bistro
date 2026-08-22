@@ -5,6 +5,8 @@ export type Review = {
   meta?: string;
   /** Star rating out of 5. */
   rating: number;
+  /** Short headline. Google reviews have none; guest-written ones do. */
+  title?: string;
   quote: string;
 };
 
