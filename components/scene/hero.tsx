@@ -155,6 +155,10 @@ export function Hero() {
               Indie Bistro
             </h1>
 
+            <span className="mt-3 rounded-full border border-menu-gold/50 bg-white px-4 py-1 text-[10px] font-medium uppercase tracking-[0.24em] text-menu-gold sm:text-[11px]">
+              Tradition with a Twist
+            </span>
+
             <DiamondRule className="mt-3 h-3 w-52 text-menu-gold sm:w-72" />
           </motion.div>
 

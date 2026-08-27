@@ -42,9 +42,9 @@ export const menu: MenuSection[] = [
             name: "Veg Spring Rolls (6 pcs)",
             description:
               "Shredded cabbage and carrot rolled in thin pastry and fried till the shell shatters. Served with sweet chilli.",
-            image:
-              "https://images.unsplash.com/photo-1695712641569-05eee7b37b6d",
+            image: "/veg-spring-rolls.webp",
             price: "$17.99",
+            badge: "Chef's Special",
           },
           {
             name: "Onion Samosa (6 pcs)",
@@ -139,8 +139,7 @@ export const menu: MenuSection[] = [
         items: [
           {
             name: "Galauti Burger (Lamb)",
-            image:
-              "https://images.unsplash.com/photo-1568901346375-23c9450c58cd",
+            image: "/galauti-burger.webp",
             price: "$16.99",
             badge: "Signature Special",
             description:
@@ -250,7 +249,6 @@ export const menu: MenuSection[] = [
               "Puff base with chilli paneer, capsicum and mozzarella, baked till the edges lift.",
             image: "/puff-pizza.webp",
             price: "$15.99",
-            badge: "Chef's Special",
           },
           {
             name: "Chicken Tikka",
@@ -258,6 +256,7 @@ export const menu: MenuSection[] = [
               "Puff base loaded with tandoori chicken tikka, onion and mozzarella.",
             image: "/chicken-tikka-pizza.webp",
             price: "$17.99",
+            badge: "Chef's Special",
           },
         ],
       },
@@ -357,9 +356,9 @@ export const menu: MenuSection[] = [
             name: "Chicken Biryani",
             description:
               "Basmati layered with marinated chicken and dum-cooked, served with raita and salan.",
-            image:
-              "https://images.unsplash.com/photo-1589302168068-964664d93dc0",
+            image: "/chicken-biryani.webp",
             price: "$15.99",
+            badge: "Chef's Special",
           },
           {
             name: "Mutton Biryani",
@@ -516,7 +515,7 @@ export const menu: MenuSection[] = [
             description: "Chilled still water, 600ml.",
             image:
               "https://images.unsplash.com/photo-1602143407151-7111542de6e8",
-            price: "$4.49",
+            price: "$3.95",
           },
           {
             name: "Fresh Lime Soda / Water",
@@ -538,7 +537,7 @@ export const menu: MenuSection[] = [
               "Cans from the fridge — cola, lemonade and the usual suspects.",
             image:
               "https://images.unsplash.com/photo-1592892111425-15e04305f961",
-            price: "$4.49",
+            price: "$3.95",
           },
         ],
       },
