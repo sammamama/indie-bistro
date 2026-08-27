@@ -29,7 +29,7 @@ export function Hero() {
   const at = (t: number) => t * (3 / 4);
 
   const bgScale = useSpring(
-    useTransform(scrollYProgress, [0, at(1), 1], [1, 2, 2]),
+    useTransform(scrollYProgress, [0, at(1), 1], [1, 1.35, 1.35]),
     exitSpring,
   );
   const fgScale = useSpring(
@@ -97,7 +97,7 @@ export function Hero() {
   );
 
   return (
-    <section ref={ref} className="relative h-[400svh] bg-neutral-950">
+    <section ref={ref} className="relative h-[300svh] bg-neutral-950">
       <div className="sticky top-0 h-dvh w-full overflow-hidden">
         <motion.video
           src="/bg.webm"
@@ -181,7 +181,7 @@ export function Hero() {
             </motion.div>
             <motion.div style={{ opacity: orderOpacity, y: orderY }}>
               <a
-                href={site.uberEats}
+                href={site.maps}
                 target="_blank"
                 rel="noreferrer"
                 className={buttonVariants({
@@ -191,7 +191,7 @@ export function Hero() {
                     "h-10 rounded-full px-6 text-sm sm:h-12 sm:px-9 sm:text-base",
                 })}
               >
-                Order Online
+                Visit Us
               </a>
             </motion.div>
           </div>

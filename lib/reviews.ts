@@ -57,9 +57,3 @@ export const reviews: Review[] = [
       "I love this place! Great selection of curries such as they melt in your mouth. If you enjoy lamb Rogan Josh be sure to come. Otherwise great friendly people. Good stuff. Yummy yums!",
   },
 ];
-
-/** Split into two marquee rows, dealt round-robin so each row reads varied. */
-export const reviewRows: Review[][] = [
-  reviews.filter((_, index) => index % 2 === 0),
-  reviews.filter((_, index) => index % 2 === 1),
-];
