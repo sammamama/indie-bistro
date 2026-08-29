@@ -6,7 +6,7 @@ import logo from "@/public/logo.webp";
 import { site } from "@/lib/site";
 import { buttonVariants } from "@/components/ui/button";
 
-const { address, phone, maps, uberEats, instagram } = site;
+const { address, phone, maps, uberEats, instagram, tiktok, facebook } = site;
 
 function InstagramGlyph() {
   return (
@@ -23,6 +23,32 @@ function InstagramGlyph() {
       <rect x="2" y="2" width="20" height="20" rx="5" />
       <circle cx="12" cy="12" r="4" />
       <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
+function TikTokGlyph() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden
+      className="size-4 shrink-0"
+    >
+      <path d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 1 1-1.79-2.46V9.79a5.77 5.77 0 1 0 4.88 5.71V9.01a7.35 7.35 0 0 0 4.29 1.37V7.29a4.29 4.29 0 0 1-3.23-1.47Z" />
+    </svg>
+  );
+}
+
+function FacebookGlyph() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden
+      className="size-4 shrink-0"
+    >
+      <path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 2.89h-2.33v6.99A10 10 0 0 0 22 12Z" />
     </svg>
   );
 }
@@ -98,7 +124,25 @@ export function Footer() {
               className="mt-3 flex items-center gap-2.5 text-sm text-neutral-600 transition-colors hover:text-neutral-900"
             >
               <InstagramGlyph />
-              @indian_maama_bentleigh
+              @indie_bistro_melbourne
+            </Link>
+            <Link
+              href={tiktok}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-3 flex items-center gap-2.5 text-sm text-neutral-600 transition-colors hover:text-neutral-900"
+            >
+              <TikTokGlyph />
+              @indie.bistro.melbourne
+            </Link>
+            <Link
+              href={facebook}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-3 flex items-center gap-2.5 text-sm text-neutral-600 transition-colors hover:text-neutral-900"
+            >
+              <FacebookGlyph />
+              Indie Bistro
             </Link>
           </div>
         </div>
