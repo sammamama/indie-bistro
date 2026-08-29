@@ -162,17 +162,3 @@ export function LeafSpray({ className }: Props) {
     </svg>
   );
 }
-
-/** Five-point star used for the guest review ratings. */
-export function Star({ className }: Props) {
-  return (
-    <svg
-      viewBox="-12 -12 24 24"
-      aria-hidden
-      className={className}
-      fill="currentColor"
-    >
-      <path d="M 0,-11 L 2.6,-3.6 L 10.4,-3.4 L 4.2,1.4 L 6.4,8.9 L 0,4.4 L -6.4,8.9 L -4.2,1.4 L -10.4,-3.4 L -2.6,-3.6 Z" />
-    </svg>
-  );
-}

@@ -20,7 +20,7 @@ const buttonVariants = cva(
         link: "text-primary underline-offset-4 hover:underline",
         /*
          * Printed-menu buttons: cream or ink stock inside a gold rule, with the
-         * same dotted inner frame the menu, story, and review sheets carry.
+         * same dotted inner frame the menu and story sheets carry.
          */
         menu:
           "relative border border-menu-gold/70 bg-menu-cream font-serif font-normal tracking-wide text-menu-ink shadow-[0_6px_16px_rgba(14,61,66,0.28)] hover:bg-menu-cream-deep before:pointer-events-none before:absolute before:inset-[3px] before:rounded-[inherit] before:border before:border-dotted before:border-menu-gold/55 before:content-['']",
