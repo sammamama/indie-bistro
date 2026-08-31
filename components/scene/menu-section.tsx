@@ -5,7 +5,6 @@ import Image from "next/image";
 import { AnimatePresence, motion } from "motion/react";
 import { Cartouche } from "@/components/menu/cartouche";
 import { DishRow } from "@/components/menu/dish-row";
-import { FeaturedDish } from "@/components/menu/featured-dish";
 import { PaperGrain } from "@/components/menu/paper";
 import {
   DiamondRule,
@@ -17,12 +16,6 @@ import { menu } from "@/lib/menu";
 export function MenuSection() {
   const [activeId, setActiveId] = useState(menu[0].id);
   const active = menu.find((section) => section.id === activeId) ?? menu[0];
-
-  // Each section leads with its badged dish, printed large with its photo, so
-  // it is lifted out of the plain priced list below.
-  const featured = active.groups
-    .flatMap((group) => group.items)
-    .find((item) => item.badge);
 
   return (
     <section
@@ -150,14 +143,8 @@ export function MenuSection() {
 
                   <div className="mt-5">
                     {active.groups.map((group, index) => {
-                      const items = group.items.filter(
-                        (item) => item !== featured,
-                      );
-                      // The featured dish sits under its own group heading, so
-                      // the group still reads as a titled block.
-                      const leadsWithFeatured =
-                        !!featured && group.items.includes(featured);
-                      if (items.length === 0 && !leadsWithFeatured) return null;
+                      const items = group.items;
+                      if (items.length === 0) return null;
 
                       return (
                         <section
@@ -181,8 +168,6 @@ export function MenuSection() {
                               )}
                             </div>
                           )}
-
-                          {leadsWithFeatured && <FeaturedDish item={featured} />}
 
                           {items.length > 0 && (
                             <ul className="divide-y divide-menu-gold/15">

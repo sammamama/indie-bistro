@@ -89,7 +89,7 @@ export const menu: MenuSection[] = [
       {
         items: [
           {
-            name: "Chicken & Chips",
+            name: "Chicken in Chip",
             image: "/chicken-and-chips.webp",
             price: "$15.99",
             badge: "Chef's Special",
@@ -318,7 +318,7 @@ export const menu: MenuSection[] = [
         title: "Non-Veg Curries",
         items: [
           {
-            name: "Red Chicken",
+            name: "Shadi Wala Red Chicken (Red Curry Chicken)",
             description:
               "Chicken simmered in a bold Andhra-style red chilli gravy — the hot one on the list.",
             image:
