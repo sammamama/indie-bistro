@@ -5,7 +5,7 @@ import type { MenuItem } from "@/lib/menu";
 // Remote stock photos are resized at the source; files served from /public are
 // already sized and take no query string.
 const photo = (base: string) =>
-  base.startsWith("/") ? base : `${base}?auto=format&fit=crop&w=400&q=70`;
+  base.startsWith("/") ? base : `${base}?auto=format&fit=crop&w=320&h=320&q=70`;
 
 /**
  * One priced line of the menu: fleur, dish, leader dots, price — the row the
@@ -16,24 +16,24 @@ const photo = (base: string) =>
  */
 export function DishRow({ item }: { item: MenuItem }) {
   return (
-    <li className="flex gap-3 py-2.5 sm:gap-4">
+    <li className="flex gap-2.5 py-2.5 sm:gap-4">
       {item.badge && item.image && (
-        <div className="relative mt-0.5 aspect-square w-16 shrink-0 overflow-hidden border border-menu-gold/50 sm:w-20">
+        <div className="relative mt-0.5 aspect-square h-14 w-14 shrink-0 self-start overflow-hidden border border-menu-gold/50 sm:h-20 sm:w-20">
           <Image
             src={photo(item.image)}
             alt={item.name}
             fill
-            sizes="80px"
+            sizes="(min-width: 640px) 80px, 56px"
             className="object-cover"
           />
         </div>
       )}
 
       <div className="min-w-0 flex-1">
-        <div className="flex items-baseline gap-2 sm:gap-3">
+        <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1 sm:flex-nowrap sm:gap-x-3">
           <FleurBullet className="h-3.5 w-3.5 shrink-0 translate-y-[3px] text-menu-gold" />
 
-          <span className="font-serif text-lg leading-snug text-menu-ink sm:text-xl">
+          <span className="min-w-0 break-words font-serif text-lg leading-snug text-menu-ink sm:text-xl">
             {item.name}
           </span>
 
@@ -57,7 +57,7 @@ export function DishRow({ item }: { item: MenuItem }) {
         </div>
 
         {item.sizes && (
-          <div className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 pl-6 font-serif text-base text-menu-ink/85">
+          <div className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 pl-5 font-serif text-base text-menu-ink/85 sm:pl-6">
             {item.sizes.map((size, index) => (
               <span key={size.label} className="flex items-center gap-3">
                 {index > 0 && (
@@ -74,7 +74,7 @@ export function DishRow({ item }: { item: MenuItem }) {
         )}
 
         {item.description && (
-          <p className="mt-1 max-w-prose pl-6 font-serif text-sm italic leading-relaxed text-menu-ink/65">
+          <p className="mt-1 max-w-prose pl-5 font-serif text-sm italic leading-relaxed text-menu-ink/65 sm:pl-6">
             {item.description}
           </p>
         )}

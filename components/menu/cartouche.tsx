@@ -91,7 +91,7 @@ export function Cartouche({
         <CornerFan className="absolute bottom-10 right-3 h-6 w-6 -scale-100 sm:bottom-12 sm:right-5 sm:h-8 sm:w-8" />
       </div>
 
-      <div className="relative flex-1 px-5 pb-8 pt-11 sm:px-10 sm:pb-10 sm:pt-12 lg:px-14 lg:pt-14">
+      <div className="relative flex-1 px-4 pb-8 pt-11 sm:px-10 sm:pb-10 sm:pt-12 lg:px-14 lg:pt-14">
         {children}
       </div>
     </div>

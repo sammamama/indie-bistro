@@ -8,15 +8,15 @@ import {
 const chapters = [
   {
     label: "First",
-    body: "A Malaysian restaurant — the first chapter for this corner of Bentleigh.",
+    body: "A love for the food we grew up on. Bold, spiced, comforting.",
   },
   {
     label: "Then",
-    body: "We came along and turned it into Indian Maama, filling it with the flavours we grew up on.",
+    body: "We started playing with it. Crunch where you don't expect it. A twist where it counts.",
   },
   {
     label: "Now",
-    body: "Indie Bistro. Same heart, new name, same reason we do this.",
+    body: "Indie Bistro. Come as you are! We just want you fed, happy, and in no rush to leave.",
   },
 ];
 
@@ -53,8 +53,8 @@ export function AboutSection() {
           <DiamondRule className="mx-auto mt-4 h-3 w-44 text-menu-gold sm:w-60" />
 
           <p className="mx-auto mt-5 max-w-xl font-serif text-base italic leading-relaxed text-menu-ink/75 sm:text-lg">
-            Every space carries a little history in its walls. This one has had
-            a few lives already.
+            Tradition with a twist! That&rsquo;s the whole idea. Familiar
+            flavours, a little unexpected, always crave-worthy.
           </p>
 
           <ol className="mt-8 grid gap-5 border-y border-menu-gold/30 py-6 sm:gap-6 sm:py-7 sm:grid-cols-3">
