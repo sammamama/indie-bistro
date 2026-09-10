@@ -7,6 +7,7 @@ import {
 } from "next/font/google";
 import "./globals.css";
 import { FloatingNav } from "@/components/floating-nav";
+import { OfferBanner } from "@/components/offer-banner";
 import { site } from "@/lib/site";
 
 const geistSans = Geist({
@@ -78,6 +79,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable} ${pinyonScript.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <OfferBanner />
         <FloatingNav />
         {children}
       </body>

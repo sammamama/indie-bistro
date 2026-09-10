@@ -24,7 +24,7 @@ export function MenuSection() {
        * The sheet always grows to its full printed length and scrolls with the
        * page; only the title and the section tabs stay pinned while it passes.
        */
-      className="flex w-full flex-col bg-neutral-100 pb-8 pt-[4.5rem] md:pb-10"
+      className="flex w-full flex-col bg-neutral-100 pb-8 pt-[calc(var(--banner-h)+4.5rem)] md:pb-10"
     >
       <div className="mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8">
         {/* The printed menu lives on its own bordered sheet of sage paper. */}
@@ -66,7 +66,7 @@ export function MenuSection() {
              * for as long as the sheet is on screen — the bar's containing
              * block is the sheet, so it releases at the foot of the menu.
              */}
-            <div className="sticky top-[4.75rem] z-[45] -mx-1 rounded-2xl bg-menu-sage/90 px-1 pb-1.5 backdrop-blur-sm md:top-[5.5rem]">
+            <div className="sticky top-[calc(var(--banner-h)+4.5rem)] z-[45] -mx-1 rounded-2xl bg-menu-sage/90 px-1 pb-1.5 backdrop-blur-sm md:top-[calc(var(--banner-h)+5.25rem)]">
               <header className="shrink-0 text-center">
                 <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-menu-ink/55">
                   Tradition with a twist
