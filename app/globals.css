@@ -322,18 +322,3 @@
     display: none;
   }
 }
-
-
-/*
- * Height of the fixed offer strip, published so the floating nav, the nav scrim
- * and the menu's sticky tab bar can all offset by it instead of hard-coding it.
- */
-:root {
-  --banner-h: 2.5rem;
-}
-
-@media (min-width: 640px) {
-  :root {
-    --banner-h: 2.75rem;
-  }
-}

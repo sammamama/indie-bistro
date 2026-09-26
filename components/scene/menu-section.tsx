@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { AnimatePresence, motion } from "motion/react";
 import { Cartouche } from "@/components/menu/cartouche";
 import { DishRow } from "@/components/menu/dish-row";
@@ -24,7 +25,7 @@ export function MenuSection() {
        * The sheet always grows to its full printed length and scrolls with the
        * page; only the title and the section tabs stay pinned while it passes.
        */
-      className="flex w-full flex-col bg-neutral-100 pb-8 pt-[calc(var(--banner-h)+4.5rem)] md:pb-10"
+      className="flex w-full flex-col bg-neutral-100 pb-8 pt-[4.5rem] md:pb-10"
     >
       <div className="mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8">
         {/* The printed menu lives on its own bordered sheet of sage paper. */}
@@ -66,7 +67,7 @@ export function MenuSection() {
              * for as long as the sheet is on screen — the bar's containing
              * block is the sheet, so it releases at the foot of the menu.
              */}
-            <div className="sticky top-[calc(var(--banner-h)+4.5rem)] z-[45] -mx-1 rounded-2xl bg-menu-sage/90 px-1 pb-1.5 backdrop-blur-sm md:top-[calc(var(--banner-h)+5.25rem)]">
+            <div className="sticky top-[4.75rem] z-[45] -mx-1 rounded-2xl bg-menu-sage/90 px-1 pb-1.5 backdrop-blur-sm md:top-[5.5rem]">
               <header className="shrink-0 text-center">
                 <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-menu-ink/55">
                   Tradition with a twist
@@ -192,7 +193,18 @@ export function MenuSection() {
         </div>
       </div>
 
-      <p className="mx-auto mt-1 w-full max-w-5xl shrink-0 px-4 text-center sm:px-6 lg:px-8">
+      <p className="mx-auto mt-1 flex w-full max-w-5xl shrink-0 flex-wrap items-center justify-center gap-x-4 gap-y-1 px-4 text-center sm:px-6 lg:px-8">
+        {/*
+         * The tabs above keep eight of the nine sections out of the markup.
+         * This link is how a crawler — and anyone who'd rather read the lot on
+         * one page — reaches the whole menu.
+         */}
+        <Link
+          href="/menu"
+          className="font-serif text-sm italic text-neutral-500 underline decoration-menu-gold underline-offset-4 transition-colors hover:text-menu-ink"
+        >
+          See every dish and price on one page
+        </Link>
         <a
           href="/Indie_Bistro_Menu.pdf"
           target="_blank"

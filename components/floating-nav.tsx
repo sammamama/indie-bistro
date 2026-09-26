@@ -21,9 +21,6 @@ const links = [
   { label: "Contact", href: "#contact" },
 ];
 
-/* Offer strip + floating nav, in px — the depth of chrome the hero sits under. */
-const NAV_CLEARANCE = 140;
-
 const glow =
   "[text-shadow:0_1px_2px_rgb(0_0_0/0.65),0_4px_12px_rgb(0_0_0/0.5),0_12px_32px_rgb(0_0_0/0.35)]";
 
@@ -37,7 +34,7 @@ export function FloatingNav() {
 
   const pastHero = (y: number) => {
     const target = document.getElementById("menu");
-    return target ? y + NAV_CLEARANCE >= target.offsetTop : false;
+    return target ? y + 96 >= target.offsetTop : false;
   };
 
   useEffect(() => setOnLight(pastHero(window.scrollY)), []);
@@ -52,9 +49,9 @@ export function FloatingNav() {
     <>
       <div
         aria-hidden
-        className="nav-scrim pointer-events-none fixed inset-x-0 top-(--banner-h) z-40 h-28 md:h-32"
+        className="nav-scrim pointer-events-none fixed inset-x-0 top-0 z-40 h-28 md:h-32"
       />
-      <div className="fixed inset-x-0 top-[calc(var(--banner-h)+0.75rem)] z-50 flex justify-center px-4 md:top-[calc(var(--banner-h)+1.25rem)]">
+      <div className="fixed inset-x-0 top-4 z-50 flex justify-center px-4 md:top-6">
         <motion.nav
           initial={{ y: -24, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}

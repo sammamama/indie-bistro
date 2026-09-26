@@ -147,8 +147,26 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-neutral-200 pt-6 text-xs text-neutral-500">
-          © {new Date().getFullYear()} Indie Bistro, Bentleigh.
+        <div className="mt-12 flex flex-col gap-3 border-t border-neutral-200 pt-6 text-xs text-neutral-500 sm:flex-row sm:items-center sm:justify-between">
+          <p>© {new Date().getFullYear()} Indie Bistro, Bentleigh.</p>
+          {/* Plain links, so every page is reachable by a crawler that runs no JS. */}
+          <nav aria-label="Footer" className="flex flex-wrap gap-x-5 gap-y-2">
+            <Link href="/" className="transition-colors hover:text-neutral-900">
+              Home
+            </Link>
+            <Link
+              href="/menu"
+              className="transition-colors hover:text-neutral-900"
+            >
+              Menu &amp; prices
+            </Link>
+            <Link
+              href="/about"
+              className="transition-colors hover:text-neutral-900"
+            >
+              About
+            </Link>
+          </nav>
         </div>
       </div>
     </footer>

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import {
   Geist,
   Geist_Mono,
@@ -7,7 +7,6 @@ import {
 } from "next/font/google";
 import "./globals.css";
 import { FloatingNav } from "@/components/floating-nav";
-import { OfferBanner } from "@/components/offer-banner";
 import { site } from "@/lib/site";
 
 const geistSans = Geist({
@@ -70,6 +69,24 @@ export const metadata: Metadata = {
     title: "Indie Bistro — Indian Restaurant in Bentleigh, Melbourne",
     description,
   },
+  /*
+   * Search Console ownership. Set NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION to the
+   * token Google hands you under "HTML tag"; left unset, the meta tag is simply
+   * not emitted. Verifying is what turns Search Console on, and Search Console
+   * is the only place the site's real query and indexing data lives.
+   */
+  ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+    ? {
+        verification: {
+          google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+        },
+      }
+    : {}),
+};
+
+export const viewport: Viewport = {
+  themeColor: "#f5f1e6",
+  colorScheme: "light",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -79,7 +96,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable} ${pinyonScript.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <OfferBanner />
         <FloatingNav />
         {children}
       </body>

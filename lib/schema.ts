@@ -1,4 +1,5 @@
 import { menu } from "@/lib/menu";
+import { faqs } from "@/components/scene/menu-faq";
 import { businessInfo, openingHours, site } from "@/lib/site";
 
 /** "$17.99" -> "17.99". Returns undefined for anything we can't read as money. */
@@ -48,7 +49,7 @@ export function menuSchema() {
   return {
     "@type": "Menu",
     name: `${site.name} Menu`,
-    url: `${site.url}/#menu`,
+    url: `${site.url}/menu`,
     hasMenuSection: menu.map((section) => ({
       "@type": "MenuSection",
       name: section.label,
@@ -151,6 +152,48 @@ export function breadcrumbSchema(
       position: index + 1,
       name: crumb.name,
       item: `${site.url}${crumb.path}`,
+    })),
+  };
+}
+
+/**
+ * The /menu route as its own entity: the page carries the full Menu as its
+ * main entity and points back at the Restaurant that serves it. The homepage's
+ * Restaurant node embeds the same menu, and both reference the restaurant by
+ * one `@id`, so the two descriptions reconcile to one business.
+ */
+export function menuPageSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${site.url}/menu#webpage`,
+    url: `${site.url}/menu`,
+    name: `${site.name} Menu`,
+    description: `The full menu and prices at ${site.name}, ${site.address}.`,
+    inLanguage: "en-AU",
+    isPartOf: { "@id": `${site.url}/#website` },
+    about: { "@id": `${site.url}/#restaurant` },
+    primaryImageOfPage: `${site.url}/menu.jpeg`,
+    mainEntity: menuSchema(),
+  };
+}
+
+/**
+ * The questions answered on /menu.
+ *
+ * Google restricted FAQ rich results to government and health sites in 2023,
+ * so this earns no snippet — it is here because the answers are still read as
+ * facts about the business by Google and by AI search engines that cite pages.
+ */
+export function faqSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": `${site.url}/menu#faq`,
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.q,
+      acceptedAnswer: { "@type": "Answer", text: faq.a },
     })),
   };
 }
